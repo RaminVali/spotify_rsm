@@ -1,3 +1,6 @@
+import requests
+import json
+
 def load_data():
     ''' Retrieve data from the GitHub API
 
