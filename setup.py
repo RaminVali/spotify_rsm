@@ -1,8 +1,8 @@
 # from setuptools import setup
 
 # setup(
-#     name='spotify_rms'
+#     name='spotify_rsm'
 #     version='1.1.0'
-#     author='Ramin, Melissa, Sonia' # hence the rms
-#     packages=['spotify_rms']
+#     author='Ramin, Sonia, Melissa' # hence the RSM
+#     packages=['spotify_rsm']
 #     )
