@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "spotify_rsm"
+authors = [
+    {name = "Ramin Vali, Sonia Grebenisan, Melissa De Moya", 
+    email = "r.vali@phoenixme.ae, soniagrebenisan@gmail.com, melidemoya@gmail.com"},
+]
+description = "Team repo for DSI BRS Assignment"
+version = "0.1.0"
+dependencies = ["setup.py, analysis.py, test_analysis.py"]
+requires-python = ">=3.11.0"
+readme = "README.md"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+]
+
