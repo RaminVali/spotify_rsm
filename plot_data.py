@@ -7,7 +7,7 @@ import seaborn as sns
 df = pd.read_csv('playlist_data.csv')
 
 #Defining the function for a scatter plot
-def plot_data( mydf: pd.DataFrame, xvar: str, yvar:str, fig_width: int, fig_length: int, title:str, xlabel: str, ylabel: str, legend: str):
+def plot_data_scatter( mydf: pd.DataFrame, xvar: str, yvar:str, fig_width: int, fig_length: int, title:str, xlabel: str, ylabel: str, legend: str):
     
     ''' Analyze and plot scatter data
 
@@ -64,5 +64,26 @@ def plot_data_stripplot( mydf: pd.DataFrame, xvar: str, yvar:str, hue: str):
 plt.savefig('Stripplot.pdf')
 
 
+#Defining the function for a Horizontal Bar plot
+def plot_data_barh( mydf: pd.DataFrame, chosen_column: str, color: str , edgecolor: str, title: str, xlabel: str, ylabel:str ):
+     ''' Analyze and plot a Horizontal Bar graph for the data
 
+    Generates a Horizontal Bar plot and saves it as a figure
 
+    Parameters
+    ----------
+    mydf: pd.DataFrame,
+    chosen_column: str,
+    
+        
+    Returns
+    -------
+    pdf : Stripplot.pdf
+    '''
+fig, ax = plt.subplots()
+    ax.barh(mydf.index, mydf['chosen_column'], color = color, edgecolor = edgecolor)
+    ax.set_title(title)
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
+
+plt.savefig('Bar_Plot.png')
