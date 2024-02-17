@@ -1,5 +1,5 @@
 import pytest
-import compute_analysis as mycode
+import compute_analysis 
 import os
 import yaml
 import pandas as pd 
@@ -15,8 +15,6 @@ for this_config_file in config_files:
 
 # Sonia's unit test for scatter plot
 def test_correlation_analysis():
-    input = pd.read_csv(config['dataset'])
-    mycode.correlation_analysis(input)
-    # exp_output = os.path.isfile('playlist_data_correlation_heatmap.png')
+    compute_analysis.correlation_analysis()
 
     assert os.path.isfile('playlist_data_correlation_heatmap.png'), "Correlation heatmap not created."
