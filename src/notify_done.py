@@ -14,6 +14,11 @@ def notify_done():
 
     Send a notification to the user through the ntfy.sh webpush service.
 
+    Important Note
+    ---------------
+    You must subscribe to the specified topic name in ntfy.sh! 
+    See topicname in userconfig.yml for this module's topic name.
+
     Parameters
     ----------
     message : str
