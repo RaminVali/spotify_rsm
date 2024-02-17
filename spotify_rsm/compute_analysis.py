@@ -31,7 +31,20 @@ def compute_analysis():
     # Sonia's Analysis Function
 
     def correlation_analysis ():
-        # insert docstring here 
+        '''Analyze previously-loaded data.
+
+        This function calculates the correlation between all numerical 
+        columns listed in columns_for_corr in userconfig.yml
+
+        Parameters
+        ----------
+        DataFrame object from load_data module, containing the track information for all the tracks in the playlist
+
+        Returns
+        -------
+        analysis_output : correlation heatmap
+
+        ''' 
 
         try:
             playlist_data = pd.read_csv(config['dataset'])
@@ -40,6 +53,6 @@ def compute_analysis():
             raise e 
         playlist_data_explore_corr = playlist_data[config['columns_for_corr']]
         assert set(config['columns_for_corr']).issubset(set(playlist_data.columns.tolist())), "Error selecting columns for correlation analysis. Make sure your columns exist in the dataset."
-
+        
         ax = sns.heatmap(playlist_data_explore_corr.corr(), annot=config['annotate_heatmap'])
         plt.savefig('playlist_data_correlation_heatmap.png')
