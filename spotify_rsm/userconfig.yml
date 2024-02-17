@@ -1,0 +1,13 @@
+# call spotify api
+dataset: '../../playlist_data.csv' # needs updating
+
+columns_for_corr: ['popularity'
+                    , 'danceability'
+                    , 'energy'
+                    , 'speechiness'
+                    , 'acousticness'
+                    , 'instrumentalness'
+                    , 'tempo'
+                    , 'valence']
+
+annotate_heatmap: False
