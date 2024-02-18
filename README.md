@@ -4,6 +4,7 @@ Team repo for DSI BRS Assignment
 * [General Info] (#general-info)
 * [Technologies] (#technologies)
 * [Setup] (#setup)
+* [Inspiration] 
 
 ## General Info
 This project is a simple function to generate different sorts of graphs to analyze Spotify Playlists based on any variable you'd like. We suggest to explore danceability, speechiness and valence.
@@ -40,3 +41,6 @@ setup(
    author='Ramin, Sonia, Melissa' # hence the RSM
    packages=['spotify_rsm'])
 ```
+## Inspiration
+This repo is based on items learned during Building Software section of cohort 2 of DSI. 
+Inspired by Simeon Wong, who inaverdetly taught us to push ourselves forward and read a lot of documentation on the way.
