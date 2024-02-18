@@ -185,10 +185,10 @@ def prep_data(df:pd.DataFrame)->pd.DataFrame:
     ----------
     df : processed dataframe
     '''
-    # fixing the artist column
+    # # fixing the artist column
     def get_artist(row):
         sep = 'type'
-        result = row.split('name')[1:][0].split(sep,1)[0]
+        result = str(row).split('name')[1:][0].split(sep,1)[0]
         result = result.replace("': '",'').replace("', '",'')
         return result
     df['artists'] = df['artists'].apply(get_artist).copy()
@@ -204,7 +204,7 @@ def prep_data(df:pd.DataFrame)->pd.DataFrame:
 
 
 
-def load_data(client_id:str, client_secret:str,playlist_url: str):
+def load_data(config:dict):
     ''' Retrieve data from the spotify API
 
     This function takes user credentials and a spotify plaift url, and returns a dataframe with 
@@ -212,14 +212,7 @@ def load_data(client_id:str, client_secret:str,playlist_url: str):
 
     Parameters
     ----------
-    client_id : str
-        The client id from spotify webapp
-
-    client_secret : str
-        The client secret from spotify webapp
-
-    playlist_url    :   str
-        playlist_url : An open spotify playlist url
+    config : dict the configuration file
 
 
     Returns
@@ -227,10 +220,19 @@ def load_data(client_id:str, client_secret:str,playlist_url: str):
     DataFrame object, containing the track information for all the tracks in the playlist
 
     '''
+    # Parsing the config file for credentials
+    client_id = config['client_id']
+    client_secret = config['client_secret']
+    playlist_url = config ['playlist_url']
 
+    # inner function calls to authenticate, retirve and prep data
     playlist_uri = get_playlist_uri(playlist_url)
     headers = authenticate(client_id, client_secret)
     track_ids = get_track_ids(playlist_uri, headers)
     df_raw = get_track_data(track_ids,headers)
     df = prep_data(df_raw)
+    
+    logging.info(f'Successfully finsihed load_data stage, final dataframe shape is {df.shape}')
+
+
     return df

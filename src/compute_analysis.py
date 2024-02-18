@@ -27,13 +27,11 @@ def compute_analysis(df):
         print(num_tracks)
         duration = round(df['duration_ms_y'].sum()/3600000)
         num_artist = len(df['artists'].unique())
-        analysis_dict = {'Number of Tracks': num_tracks, 'Playlist Duration': duration, 'Number of Artists':num_artist}
-        return analysis_dict
+        analysis_dict = {'Number of Tracks': num_tracks, 'Playlist Duration (Hours)': duration, 'Number of Artists':num_artist}
+        analysis_df = pd.DataFrame(analysis_dict, index=[''])
+        return analysis_df
 
     except  Exception as e:
         e.add_note('Did not find the dataframe to do analysis on')
-        logging.error('Error loading data from analysis')
+        logging.error('Error loading data for analysis')
 
-
-mydict = compute_analysis(df)
-print(mydict)

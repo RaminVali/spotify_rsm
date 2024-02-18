@@ -1,7 +1,8 @@
 # Secrets and passwords
 secrets.yml
-job_config.yml
+analysis_config.yml
 data.csv
+playlist_data.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
