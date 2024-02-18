@@ -7,7 +7,7 @@ import pandas as pd
 import logging
 import yaml
 
-config_paths = ['job_config.yml']
+config_paths = ['userconfig.yml','job_config.yml']
 
 config = {}
 for path in config_paths:

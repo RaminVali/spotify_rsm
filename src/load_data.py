@@ -170,6 +170,38 @@ def get_track_data(track_ids:list, headers:dict) -> pd.DataFrame:
     
     return df
 
+def prep_data(df:pd.DataFrame)->pd.DataFrame:
+    '''
+    This function receives a scarped dataframe scraped form the API and does some preprocessing 
+    to extract the artist name and do key mapping. This function can be expanded in real projects to 
+    handle the file preprocessing.
+
+    Parameters
+    ----------
+    df : input dataframe - raw
+
+
+    Returns
+    ----------
+    df : processed dataframe
+    '''
+    # fixing the artist column
+    def get_artist(row):
+        sep = 'type'
+        result = row.split('name')[1:][0].split(sep,1)[0]
+        result = result.replace("': '",'').replace("', '",'')
+        return result
+    df['artists'] = df['artists'].apply(get_artist).copy()
+
+
+    # mapping keys column to actual keys
+    music_dict = {0:'C',1:'C', 2:'D', 3:'D#', 4:'E', 5:'F', 6:'F#', 7:'G', 8:'G#',9:'A', 10 :'A#', 11:'B'}
+    df['key'] = df['key'].apply(lambda x:music_dict[x])
+
+    assert isinstance(df, pd.DataFrame)
+
+    return df
+
 
 
 def load_data(client_id:str, client_secret:str,playlist_url: str):
@@ -199,5 +231,6 @@ def load_data(client_id:str, client_secret:str,playlist_url: str):
     playlist_uri = get_playlist_uri(playlist_url)
     headers = authenticate(client_id, client_secret)
     track_ids = get_track_ids(playlist_uri, headers)
-    df = get_track_data(track_ids,headers)
+    df_raw = get_track_data(track_ids,headers)
+    df = prep_data(df_raw)
     return df

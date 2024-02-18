@@ -4,10 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "spotify_rsm"
-authors = [
-    {name = "Ramin Vali, Sonia Grebenisan, Melissa De Moya", 
-    email = "r.vali@phoenixme.ae, sonia.grebenisan@gmail.com, melidemoya@gmail.com"},
-]
+authors = [{name = "Ramin Vali, Sonia Grebenisan, Melissa De Moya", email = "r.vali@ieee.org, sonia.grebenisan@gmail.com, melidemoya@gmail.com"}]
+
 description = "Team repo for DSI BRS Assignment"
 version = "0.1.0"
 dependencies = ["setup.py, analysis.py, test_analysis.py"]
@@ -17,3 +15,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
 ]
 
+
+[tool.pytest.ini_options]
+python_files = "test*.py"
+pythonpath = "src"
