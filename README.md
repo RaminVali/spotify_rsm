@@ -19,7 +19,7 @@ Project is created with:
 To access a Spotify API yourself, you'll need to create an account to obtain a client_id and client_secret.
 To run this project you will need to generate  install it by running the following code on Colab.
 
-'''
+```
 !pip install git+https://github.com/user/yourteamrepo
 from yourteamrepo import Analysis
 
@@ -30,4 +30,4 @@ analysis_output = analysis_obj.compute_analysis()
 print(analysis_output)
 
 analysis_figure = analysis_obj.plot_data()
-'''
+```
