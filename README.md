@@ -43,4 +43,4 @@ setup(
 ```
 ## Inspiration
 This repo is based on items learned during Building Software section of cohort 2 of DSI. 
-Inspired by Simeon Wong, who inaverdetly taught us to push ourselves forward and read a lot of documentation on the way.
+Inspired by Simeon Wong, who inadverdetly taught us to push ourselves forward and read a lot of documentation on the way.
