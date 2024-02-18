@@ -1,20 +1,16 @@
-import pytest
-import compute_analysis 
-import os
-import yaml
-import pandas as pd 
+import pandas as pd
+from pytest import raises
 
+df = pd.read_csv('../data.csv')
 
-config_files = ['userconfig.yml']
-config = {}
-for this_config_file in config_files:
-    with open(this_config_file, 'r') as yamlfile:
-        this_config = yaml.safe_load(yamlfile)
-        config.update(this_config)
+# Sonia's unit test for analysis
+def test_compute_analysis():
+    from compute_analysis import compute_analysis
+    result = compute_analysis(df)
+    assert result['Number of Tracks'] >=0
+    assert result['Playlist Duration'] >=0
+    assert result['Number of Artists'] >=0
 
-
-# Sonia's unit test for scatter plot
-def test_correlation_analysis():
-    compute_analysis.correlation_analysis()
-
-    assert os.path.isfile('playlist_data_correlation_heatmap.png'), "Correlation heatmap not created."
+    with raises(TypeError):
+        compute_analysis('this is not a pd.DataFrame')
+    

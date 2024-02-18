@@ -1,6 +1,7 @@
 # Secrets and passwords
 secrets.yml
 job_config.yml
+data.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
