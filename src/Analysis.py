@@ -6,14 +6,12 @@ from load_data import load_data
 from compute_analysis import compute_analysis
 from plot_data import plot_data
 
-from typing import Any, Optional
+from typing import Optional
 import matplotlib.pyplot as plt
 import yaml
 import requests
-
 import pandas as pd
 import logging
-import yaml
 import matplotlib.pyplot as plt
 import os
 
@@ -85,12 +83,12 @@ class Analysis:
             data=message.encode(encoding='utf-8'))
         
 
-
-analysis_object = Analysis('../configs/analysis_config.yml')
-analysis_object.load_data()
-analysis_output = analysis_object.compute_analysis()
-print(analysis_output)
-analysis_object.notify_done()
-analysis_object.plot_data() # sample path: '../img2/'
+### Running in concole:
+# analysis_object = Analysis('../configs/analysis_config.yml')
+# analysis_object.load_data()
+# analysis_output = analysis_object.compute_analysis()
+# print(analysis_output)
+# analysis_object.notify_done()
+# analysis_object.plot_data() # sample path: '../img2/'
 
 

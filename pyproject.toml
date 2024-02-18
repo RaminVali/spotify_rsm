@@ -1,21 +1,26 @@
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
-
+[tool.hatch.build.targets.wheel]
+packages = ["src/Analysis"]
 [project]
 name = "spotify_rsm"
-authors = [{name = "Ramin Vali, Sonia Grebenisan, Melissa De Moya", email = "r.vali@ieee.org, sonia.grebenisan@gmail.com, melidemoya@gmail.com"}]
-
-description = "Team repo for DSI BRS Assignment"
+authors = [
+    {name = "Ramin Vali", email = "r.vali@ieee.org"},
+    {name = "Sonia Grebenisan", email = "sonia.grebenisan@gmail.com"},
+    {name = "Melissa De Moya", email =  "melidemoya@gmail.com"},
+]
+description = "Team package for DSI BRS Assignment"
 version = "0.1.0"
-dependencies = ["setup.py, analysis.py, test_analysis.py"]
-requires-python = ">=3.11.0"
+dependencies = ["matplotlib","requests","seaborn", "pandas", "numpy","pyyaml"]
+requires-python = ">=3.10.0"
 readme = "README.md"
 classifiers = [
     "License :: OSI Approved :: MIT License",
 ]
 
-
 [tool.pytest.ini_options]
-python_files = "test*.py"
+python_files = "tests*.py"
 pythonpath = "src"
+
+
