@@ -1,16 +1,39 @@
-def compute_analysis():
-    '''Analyze previously-loaded data.
+import pandas as pd 
+import logging
 
-    This function runs an analytical measure of your choice (mean, median, linear regression, etc...)
-    and returns the data in a format of your choice.
+#df = pd.read_csv('../data.csv')
+
+def compute_analysis(df):
+    '''
+    This function analyses the selected playlist and outputs the following:
+
+    - Total number of tracks in the playlist
+    - Total number of artists reprersented in the playlist
+    - Total duration of the playlist
 
     Parameters
     ----------
-    None
+    df : Dataframe object from load data
 
-    Returns
-    -------
-    analysis_output : Any
 
+    Returns:
+    --------
+    None (Print statements for the above as per the assignment requirements)
+    
     '''
-    pass
+
+    try :
+        num_tracks = df.shape[0]
+        print(num_tracks)
+        duration = round(df['duration_ms_y'].sum()/3600000)
+        num_artist = len(df['artists'].unique())
+        analysis_dict = {'Number of Tracks': num_tracks, 'Playlist Duration': duration, 'Number of Artists':num_artist}
+        return analysis_dict
+
+    except  Exception as e:
+        e.add_note('Did not find the dataframe to do analysis on')
+        logging.error('Error loading data from analysis')
+
+
+mydict = compute_analysis(df)
+print(mydict)
