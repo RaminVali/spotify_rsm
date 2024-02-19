@@ -1,6 +1,6 @@
-from load_data import load_data
-from compute_analysis import compute_analysis
-from plot_data import plot_data
+from . import load_data
+from . import compute_analysis
+from . import plot_data
 
 
 from typing import Optional
