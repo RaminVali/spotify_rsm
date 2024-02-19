@@ -5,6 +5,12 @@ build-backend = "hatchling.build"
 packages = ["src/spotify_rsm"]
 [tool.hatchling.package_data]
 "spotify_rsm" = ["configs","logs","img"]
+[tool.hatch.build.targets.sdist]
+include = [
+  "/logs",
+  "/configs",
+  "/img",
+]
 [project]
 name = "spotify_rsm"
 authors = [

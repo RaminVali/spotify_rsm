@@ -42,19 +42,19 @@ class Analysis:
 
     def load_data(self) -> pd.DataFrame:
         #data = requests.get('/url/to/data').json()
-        self.data = load_data(self.config)
+        self.data = load_data.load_data(self.config)
         return self.data
         
 
     def compute_analysis(self) -> pd.DataFrame:
-        output = compute_analysis(self.data)
+        output = compute_analysis.compute_analysis(self.data)
         return output
 
 
     def plot_data(self, save_path: Optional[str]=None) -> plt.Figure:
         if save_path:
             os.mkdir(save_path)
-        plot_data(self.data, save_path, self.config)
+        plot_data.plot_data(self.data, save_path, self.config)
         plt.show()
         plt.show()
         plt.show()
