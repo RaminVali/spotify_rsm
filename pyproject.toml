@@ -1,16 +1,16 @@
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-[tool.hatch.build.targets.wheel]
-packages = ["src/spotify_rsm"]
-[tool.hatchling.package_data]
-"spotify_rsm" = ["configs","logs","img"]
-[tool.hatch.build.targets.sdist]
-include = [
-  "/logs",
-  "/configs",
-  "/img",
-]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+[tool.setuptools]
+include-package-data = true
+[tool.setuptools.package-data]
+spotify_rsm = [
+        "../../configs/*",
+        "../../logs/*",
+        "../../img/*"
+    ]
+[tool.setuptools.packages.find]
+where = ["src"]
 [project]
 name = "spotify_rsm"
 authors = [
