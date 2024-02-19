@@ -11,8 +11,8 @@ import matplotlib.pyplot as plt
 import os
 
 
-#dirname = os.path.dirname(__file__)
-logging.basicConfig (level = logging.INFO, filename='logs/logging.log')
+dirname = os.path.dirname(__file__)
+logging.basicConfig (level = logging.INFO, filename=os.path.join(dirname,'../../logging.log'))
 
 
 class Analysis:
@@ -22,7 +22,7 @@ class Analysis:
     '''
     def __init__(self, analysis_config: str) -> None:
 
-        dirname = os.path.dirname(__file__)
+        
 
         CONFIG_PATHS = [os.path.join(dirname,'../../configs/system_config.yml'), 
                         os.path.join(dirname,'../../configs/user_config.yml'),]
