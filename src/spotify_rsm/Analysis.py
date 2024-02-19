@@ -2,9 +2,9 @@
 # from spotify_rsm.src.compute_analysis import compute_analysis
 # from spotify_rsm.src.plot_data import plot_data
 
-from load_data import load_data
-from compute_analysis import compute_analysis
-from plot_data import plot_data
+from . import load_data
+from . import compute_analysis
+from . import plot_data
 
 from typing import Optional
 import matplotlib.pyplot as plt
@@ -39,19 +39,19 @@ class Analysis:
 
     def load_data(self) -> pd.DataFrame:
         #data = requests.get('/url/to/data').json()
-        self.data = load_data(self.config)
+        self.data = load_data.load_data(self.config)
         return self.data
         
 
     def compute_analysis(self) -> pd.DataFrame:
-        output = compute_analysis(self.data)
+        output = compute_analysis.compute_analysis(self.data)
         return output
 
 
     def plot_data(self, save_path: Optional[str]=None) -> plt.Figure:
         if save_path:
             os.mkdir(save_path)
-        plot_data(self.data, save_path, self.config)
+        plot_data.plot_data(self.data, save_path, self.config)
         plt.show()
         plt.show()
         plt.show()

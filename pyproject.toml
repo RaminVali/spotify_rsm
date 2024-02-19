@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 [tool.hatchling]
 source-dir = "src"
-packages = ["spotify_rms"]
+packages = ["spotify_rsm"]
 [project]
 name = "spotify_rsm"
 authors = [
