@@ -1,4 +1,4 @@
-# spotify_rsm
+# Spotify_rsm
 Team repo for DSI BRS Assignment
 ## Table of Contents
 * [General Info] (#general-info)
@@ -13,20 +13,22 @@ This project is a simple function to generate different sorts of graphs to analy
 Project is created with:
 * Python version : 3.11.5
 * Bash Command
-* Ntfy.sh
+* ntfy.sh
 * Among others
 
 ## Setup 
 To access a Spotify API yourself, you'll need to create an account to obtain a client_id and client_secret.
-To run this project you will need to generate  install it by running the following code on Colab. This did not fully work, 
-and is a work in progress as google colab takes the config files away even AFTER they are packaged with the file.
-Remote installing on terminal works. 
+Make a file called `analysis_config.yml` and have `client_id`, `client_secret` and `playlist_url` with a playlist of your choosing.
+Initially the project was supposed to run on google colab, but shipping the config files to colab proved to be problematic (even when the config files are shipped in the package, google colab does not find them post import). So the `system_config.yml` and the `user_config.yml` files require to be present in the directory. 
+You can take them form the repository. 
+The package can be installed by running `pip install git+https://github.com/RaminVali/spotify_rsm.git`.
+The dependencies get installed successfully.
+Once installed and when you have the config files you should be able to run:
 
 ```
-!pip install git+https://github.com/user/yourteamrepo
-from yourteamrepo import Analysis
+from spotify_rsm import Analysis
 
-analysis_obj = Analysis.Analysis('config.yml')
+analysis_obj = Analysis('analysis_config.yml') # this one 
 analysis_obj.load_data()
 
 analysis_output = analysis_obj.compute_analysis()
@@ -34,15 +36,9 @@ print(analysis_output)
 
 analysis_figure = analysis_obj.plot_data()
 ```
-Alternatively, from setuptools import setup
 
-```
-setup(
-   name='spotify_rsm'
-   version='1.1.0'
-   author='Ramin, Sonia, Melissa' # hence the RSM
-   packages=['spotify_rsm'])
-```
+Alternatively, The `.tar.gz`  is part of the repository. 
+
 ## Inspiration
 This repo is based on items learned during Building Software section of cohort 2 of DSI. 
 Inspired by Simeon Wong, who inadvertantly taught us to push ourselves forward and read a lot of documentation on the way.
