@@ -1,10 +1,7 @@
-from src.spotify_rsm.load_data import load_data
-from src.spotify_rsm.compute_analysis import compute_analysis
-from src.spotify_rsm.plot_data import plot_data
+from load_data import load_data
+from compute_analysis import compute_analysis
+from plot_data import plot_data
 
-# import load_data
-# import compute_analysis
-# import plot_data
 
 from typing import Optional
 import matplotlib.pyplot as plt
