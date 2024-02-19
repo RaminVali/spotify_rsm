@@ -18,7 +18,9 @@ Project is created with:
 
 ## Setup 
 To access a Spotify API yourself, you'll need to create an account to obtain a client_id and client_secret.
-To run this project you will need to generate  install it by running the following code on Colab.
+To run this project you will need to generate  install it by running the following code on Colab. This did not fully work, 
+and is a work in progress as google colab takes the config files away even AFTER they are packaged with the file.
+Remote installing on terminal works. 
 
 ```
 !pip install git+https://github.com/user/yourteamrepo
@@ -43,4 +45,4 @@ setup(
 ```
 ## Inspiration
 This repo is based on items learned during Building Software section of cohort 2 of DSI. 
-Inspired by Simeon Wong, who inadverdetly taught us to push ourselves forward and read a lot of documentation on the way.
+Inspired by Simeon Wong, who inadvertantly taught us to push ourselves forward and read a lot of documentation on the way.

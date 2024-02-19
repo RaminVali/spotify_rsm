@@ -1,8 +1,6 @@
 from . import load_data
 from . import compute_analysis
 from . import plot_data
-
-
 from typing import Optional
 import matplotlib.pyplot as plt
 import yaml
@@ -18,6 +16,10 @@ logging.basicConfig (level = logging.INFO, filename=os.path.join(dirname,'logs/l
 
 
 class Analysis:
+    '''Main Class ofr the analysis of the spotify data.
+    The load_data, compute_analysis and plot_data methods run
+    on this class.
+    '''
     def __init__(self, analysis_config: str) -> None:
 
         CONFIG_PATHS = [os.path.join(dirname,'configs/system_config.yml'), 
@@ -38,17 +40,65 @@ class Analysis:
         self.config = config
 
     def load_data(self) -> pd.DataFrame:
+        ''' Retrieve data from the spotify API
+
+        This function takes user credentials and a spotify plaift url, and returns a dataframe with 
+        all the assocated track information for that url. 
+
+        Parameters
+        ----------
+        config : dict the configuration file
+
+
+        Returns
+        -------
+        DataFrame object, containing the track information for all the tracks in the playlist
+
+        '''
         #data = requests.get('/url/to/data').json()
         self.data = load_data.load_data(self.config)
         return self.data
         
 
     def compute_analysis(self) -> pd.DataFrame:
+        '''
+        This function analyses the selected playlist and outputs the following:
+
+        - Total number of tracks in the playlist
+        - Total number of artists reprersented in the playlist
+        - Total duration of the playlist
+
+        Parameters
+        ----------
+        df : Dataframe object from load data
+
+
+        Returns:
+        --------
+        None (Print statements for the above as per the assignment requirements)
+        
+    '''
         output = compute_analysis.compute_analysis(self.data)
         return output
 
 
     def plot_data(self, save_path: Optional[str]=None) -> plt.Figure:
+        '''
+        Main plotting function, calling specialised plotting functions to 
+        plot a range of values within the data.
+        
+        Parameters
+        ----------
+        df: DataFrame object from load_data module, containing the track information 
+        for all the tracks in the playlist
+        save_path : optional path to save the files
+        config: Config file to control plotting parameters
+            
+        Returns
+        -------
+        figure : plt.figure 4 figures
+        '''
+
         if save_path:
             os.mkdir(save_path)
         plot_data.plot_data(self.data, save_path, self.config)
@@ -83,7 +133,7 @@ class Analysis:
             data=message.encode(encoding='utf-8'))
         
 
-### Running in concole:
+### Running in concole: - It works this way
 # analysis_object = Analysis('../configs/analysis_config.yml')
 # analysis_object.load_data()
 # analysis_output = analysis_object.compute_analysis()

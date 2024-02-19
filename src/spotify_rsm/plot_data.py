@@ -150,9 +150,8 @@ def plot_data(df, save_path: Optional[str], config):
     Returns
     -------
     figure : plt.figure 4 figures
-    
-    
     '''
+    
     if save_path:
         img_path = save_path
     else:
