@@ -1,9 +1,11 @@
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
-[tool.hatchling]
-source-dir = "src"
-packages = ["spotify_rsm"]
+#[tool.hatchling]
+#source-dir = "src"
+#packages = ["spotify_rsm"]
+[tool.hatch.build.targets.wheel]
+packages = ["src/spotify_rsm"]
 [project]
 name = "spotify_rsm"
 authors = [
